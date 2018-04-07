@@ -1,29 +1,28 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app"> 
+     <v-app id="inspire">
+      <header-component></header-component> 
+
+       <router-view/>
+
+     <footer-component></footer-component>
+     </v-app> 
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import store from "@/store";
+@Component({
+  components: {
+    "header-component": Header,
+    "footer-component": Footer
   }
+})
+export default class Home extends Vue {
+  drawer = store.state.drawer;
+  source = "";
 }
-</style>
+</script>
