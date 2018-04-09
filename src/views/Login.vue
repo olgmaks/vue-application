@@ -1,9 +1,6 @@
 <template>
   <v-app id="inspire">
-     <v-toolbar app fixed clipped-left>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Application</v-toolbar-title>
-    </v-toolbar>
+    
     <v-content>
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
@@ -52,13 +49,7 @@
 
 <script lang="ts">
 
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
-@Component({
-  components: {
-    HelloWorld,
-  },
-})
+import { Component, Vue } from 'vue-property-decorator'; 
+@Component({})
 export default class Login extends Vue {}
 </script>

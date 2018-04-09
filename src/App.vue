@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator"; 
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import store from "@/store";
@@ -21,8 +21,7 @@ import store from "@/store";
     "footer-component": Footer
   }
 })
-export default class Home extends Vue {
-  drawer = store.state.drawer;
+export default class Home extends Vue { 
   source = "";
 }
 </script>

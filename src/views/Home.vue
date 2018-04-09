@@ -7,7 +7,8 @@
       app
     >
       <v-list dense>
-        <v-list-tile @click="">
+        <v-list-tile >
+        <!-- <v-list-tile @click=""> -->
           <v-list-tile-action>
             <v-icon>dashboard</v-icon>
           </v-list-tile-action>
@@ -15,7 +16,8 @@
             <v-list-tile-title>Dashboard</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile @click="">
+        <v-list-tile >
+        <!-- <v-list-tile @click=""> -->
           <v-list-tile-action>
             <v-icon>settings</v-icon>
           </v-list-tile-action>
@@ -34,7 +36,7 @@
               <v-btn
                 icon
                 large
-                :href="source"
+                
                 target="_blank"
                 slot="activator"
               >
@@ -56,18 +58,28 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Header from '@/components/Header.vue';  
-import Footer from '@/components/Footer.vue';  
-import store from '@/store'
+import { Component, Vue } from "vue-property-decorator";
+import { mapGetters } from "vuex";
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import store from "@/store";
 @Component({
   components: {
-    'header-component' : Header,
-    'footer-component' : Footer
-  }
+    "header-component": Header,
+    "footer-component": Footer
+  },
+  computed: {
+    drawer: {
+      get() {
+        console.log('get')
+        return store.state.drawer;
+      },
+      set(val){
+        console.log('set' + val)
+        store.commit('switchDrawer');
+      }
+    }
+  } 
 })
-export default class Home extends Vue {
-  
-  source = '';
-}
+export default class Home extends Vue {}
 </script>
